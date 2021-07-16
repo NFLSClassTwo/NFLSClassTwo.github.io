@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图标库</title>
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.7.0.css">
+    <script src="icon.js" ></script>
+    <script src="../../lib/jquery-3.4.1.min.js"></script>
+    <style>
+        .icons>div{
+            float: left;
+            line-height: 2;
+            padding: 10px;
+        }
+
+        .icons>div:hover{
+            background-color: beige;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a>span{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="sub-div" class="icons">
+    <div class="fa-hover col-md-3 col-sm-4">
+        <a href="javascript:;" class="fa {{icon-class}}"><span>{{icon-class}}</span></a>
+    </div>
+</div>
+
+</body>
+<script>
+    (function () {
+        var div = $('#sub-div')
+        div.removeAttr('id')
+        var temp = div.html()
+        div.empty()
+        $.each(icons , function () {
+            div.append(temp.replace('{{icon-class}}' , this).replace('{{icon-class}}' , this))
+        })
+
+    })()
+
+</script>
+</html>

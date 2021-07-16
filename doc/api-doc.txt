@@ -1,0 +1,37 @@
+
+
+#app对象属性：appOptions
+
+1   name    必须  app的名称
+2   url  必须 APP的url地址
+3   iconCls  非必须    APP的图标类 参考font-awesome-4.7.0文档
+4   headHover   非必须 app的标题是否为悬浮显示
+5   type 非必须    app的加载方式，默认为iframe的方式加载，当为sub的时候以$.load()函数加载
+6   toolbar 非必须 app的工具栏（位于标题右侧），为false时没有标题栏，默认包含关闭、最小化两个按钮
+7   closable 非必须 是否允许关闭，默认可以关闭
+8   collect 非必须 是否允许收藏，默认可以收藏
+9   id  非必须 APP的主键，当为空时取url,同一id只能打开一个
+10  menus 非必须   APP的菜单，详见menus对象说明
+11  taskbarMenus 非必须   APP的任务栏菜单，详见menus对象的说明
+
+
+# menus、toolbar对象的说明
+1   title   menus必须  标题
+2   iconCls 非必须 图标class 参考font-awesome-4.7.0文档
+3   click   非必须 单击事件
+4   hidden  非必须 是否隐藏
+
+
+# 全局配置
+1   配置文件位于resource/config.js中
+2   全局api接口地址为APP_CONFIG.apiUrl参数，api请求根据参数method区分
+    method = getApps 获取开始菜单的数据
+    method = getDesktopApp 获取桌面图标的数据
+
+
+# desk对象拥有的方法列表
+1   openApp(appOption)  打开一个APP
+2   tip(message)    在右下角弹出一个提示信息，5秒后自动消失
+3   reload()    刷新桌面，包括开始菜单、桌面图标
+4   waite(count) 让加载桌面的时候等待，在桌面加载前有效,count表示等待个数，不指定默认为1
+5   removeWaite(count)   移除加载的等待，count表示移除等待个数，不指定默认为1

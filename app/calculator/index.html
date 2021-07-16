@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style>
+        .input-box{
+            height: 35px;
+        }
+        .input-box>input{
+            height: 30px;
+            width: 100%;
+        }
+        .input-box>span{
+            height: 30px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-box">
+        <input onkeydown="calculator(this)">
+        <span id="result" class="result"></span>
+    </div>
+    <div class="history">
+
+    </div>
+</body>
+<script>
+    function calculator(obj){
+        var value = obj.value
+        var result = document.getElementById('result')
+        var html = ''
+        if(value){
+            try{
+                html += eval('(' + value + ')')
+            }catch (e) {
+                html += '出错了！'
+            }
+        }else {
+            html += '请输入表达式'
+        }
+
+        result.innerHTML = html
+
+    }
+
+</script>
+</html>

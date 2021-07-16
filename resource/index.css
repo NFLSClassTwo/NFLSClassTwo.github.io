@@ -1,0 +1,261 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.desktop{
+    width: 100%;
+    height: calc( 100% - 40px);
+    position: relative;
+    overflow: hidden;
+}
+
+.taskbar{
+    width: 100%;
+    height: 40px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.88);
+}
+.taskbar>div{
+    float: left;
+    height: 100%;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: wheat;
+}
+.taskbar>div:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.taskbar>div.active{
+    background-color: rgb(132, 129, 129);
+}
+.taskbar>div.right{
+    float: right;
+}
+.taskbar .menu{
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.88);
+    font-size: 12px;
+    min-width: 100px;
+    z-index: 9999;
+}
+.taskbar .menu>div{
+    padding: 10px 5px;
+    cursor: pointer;
+    display: block;
+}
+.taskbar .menu>div:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.taskbar>div:hover .menu{
+    display: block;
+}
+/*开始菜单*/
+#start-menu-bg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 99998;
+}
+#start-menu-content{
+    display: none;
+    width: 300px;
+    height: 500px;
+    max-height: 80%;
+    position: absolute;
+    bottom: 40px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.88);
+    z-index: 99999;
+    color: white;
+}
+/*开始菜单-用户列*/
+#start-menu-content>div.user{
+    position: absolute;
+    bottom: 0px;
+    width: 40px;
+}
+#start-menu-content>div.user>.user-button{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+#start-menu-content>div.user>.user-button:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+/*开始菜单-菜单列*/
+#start-menu-content>div.menu{
+    height: 100%;
+    width: calc(100% - 40px);
+    position: absolute;
+    left: 40px;
+    top: 0px;
+    overflow-y:auto;
+}
+#start-menu-content>div.menu>div{
+    position: relative;
+}
+#start-menu-content>div.menu>div:hover{
+    background-color: rgba(0, 0, 0, 0.88);
+    color: white;
+    cursor: pointer;
+}
+#start-menu-content>div.menu .icon{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+#start-menu-content>div.menu .text{
+    position: absolute;
+    left: 40px;
+    top:0px;
+    line-height: 40px;
+}
+
+#date-time{
+    width: 80px;
+    font-size: 12px;
+    line-height:18px;
+}
+#message{
+    font-size: 12px;
+}
+.welcome{
+    width: 100%;
+    height: 100%;
+    top : 0px;
+    left: 0px;
+    position: absolute;
+    background-color: rgba(122, 122, 122, 0.88);
+    font-size: 35px;
+}
+.welcome>div{
+    position: absolute;
+    width: 100%;
+    top:45%;
+    text-align: center;
+}
+
+.load-libs{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    top : 0px;
+    background-color: white;
+}
+.load-libs>div{
+    position: absolute;
+    height: 3px;
+    top : 0px;
+    background-color:green;
+}
+
+.desktop .app{
+    width: 70px;
+    height: 60px;
+    position: absolute;
+    background-color: #0000002b;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.desktop .app:hover{
+    color: white;
+    background-color: black;
+}
+.desktop .app>.text{
+    line-height: 2;
+}
+/*窗口样式*/
+.desktop>.content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+    max-height: 100%;
+    max-width: 100%;
+}
+.desktop>.content>.head{
+    width: 100%;
+    border: none;
+    height: 20px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+}
+.desktop>.content>.head.hover{
+    opacity: 0;
+    position: absolute;
+}
+.desktop>.content>.head.hover:hover{
+    opacity: 1;
+}
+.desktop>.content>.body{
+    width: 100%;
+    height: calc(100% - 20px);
+    border: none;
+}
+.desktop>.content>.full-screen{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.desktop>.content>.head .title{
+    height: 20px;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    line-height: 20px;
+    padding-left: 5px;
+}
+.desktop>.content>.head>.toolbar{
+    margin-right: 10px;
+    position: absolute;
+    right: 5px;
+}
+.desktop>.content>.head>.toolbar>span{
+    margin-left: 10px;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+}
+.desktop>.content>.head>.toolbar>span:hover{
+    color: #FFEB3B;
+}
+
+/*窗口样式--对话框*/
+.desktop>.content.dialog{
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    border: 1px solid #b7b7b7;
+}
+
+/* 右下角提示框*/
+.tip-box{
+    position: absolute;
+    right: 0px;
+    bottom: 40px;
+    z-index: 99999;
+    padding: 5px;
+}
+.tip-box>.message{
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0px;
+}

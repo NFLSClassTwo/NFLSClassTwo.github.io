@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的文件</title>
+    <script src="../../lib/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="../../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    .file{
+        display:inline-block;
+        width: 50px;
+        height: 60px;
+        line-height: 2;
+        text-align: center;
+        margin: 5px;
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+        font-size: 12px;
+        padding: 5px;
+        cursor: pointer;
+    }
+    .file:hover{
+        background-color: rgba(0,0,0,0.88);
+    }
+</style>
+<body>
+
+</body>
+<script>
+    (function ($) {
+        var files = [
+            {name:'静.jpg',url:'app/file/files/img.jpg',iconCls : 'fa-file-image-o'},
+            {name:'API文档',url : 'doc/api-doc.txt',iconCls:'fa-file-code-o'},
+            {name:'config.js',url : 'resource/config.js',iconCls:'fa-file-code-o'},
+            {name:'index.js',url : 'resource/index.js',iconCls:'fa-file-code-o'},
+        ]
+        /**
+         * 加载文件
+         */
+        function load(){
+            $.each(files , function () {
+                var file = $('<div class="file">').appendTo('body')
+                    .attr('name' , this.name).attr('iconCls' , this.iconCls || 'fa-file-o')
+                var icon = $('<div class="icon fa fa-3x ">').appendTo(file)
+                var text = $('<div class="text">').appendTo(file)
+                icon.addClass(this.iconCls || 'fa-file-o')
+                text.html(this.name)
+                file.click(function () {
+                    top.desk.openApp(this)
+                })
+                file.attr('data-options' , JSON.stringify(this))
+            })
+        }
+
+        load()
+    })(jQuery)
+
+
+</script>
+</html>

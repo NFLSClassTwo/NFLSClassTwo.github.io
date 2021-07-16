@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="../../lib/jquery-3.4.1.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>文本编辑器</title>
+    <style>
+        html,body{
+            overflow: hidden;
+            padding: 0px;
+            margin: 0px;
+            height: 100%;
+        }
+        textarea{
+            width: calc(100% - 20px);
+            height: calc(100% - 40px);
+            font-size: 20px;
+            margin: 5px;
+        }
+        .tools{
+            height: 20px;
+        }
+        .tools>a{
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        function save() {
+            $.post(top.APP_CONFIG.apiUrl , {method : 'save-text' , content : $('textarea').val()},function (res) {
+                top.desk.tip(res.msg)
+            },'json').fail(function (resp,info) {
+                top.desk.tip(info + ': 请求服务器失败:method = save-test,' + resp.statusCode().status)
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="tools">
+    <a href="javascript:save();">保存</a>
+    <a href="javascript:top.desk.openApp('app/file/index.html');">打开</a>
+</div>
+<textarea></textarea>
+</body>
+</html>
