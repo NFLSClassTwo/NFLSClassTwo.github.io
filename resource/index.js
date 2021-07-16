@@ -14,7 +14,7 @@
      * 所有的APP
      * @type {Array}
      */
-    const APPS = [{name:'我的文件',url:'app/file/index.html',iconCls:'fa-folder',headHover:true},{name:'百度一下',url:'http://www.baidu.com'}]
+    const APPS = [{name:'我的文件',url:'app/file/index.html',iconCls:'fa-folder',headHover:true},{name:'百度一下',url:'classic.minecraft.net'}]
 
     /**
      * 动态加载依赖库，css直接加载，js加入加载列表，等待依次加载
